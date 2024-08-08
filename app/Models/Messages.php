@@ -10,7 +10,7 @@ class Messages extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['users_id','text'];
+    protected $fillable = ['user_id','text'];
 
     public function user(): BelongsTo
     {
@@ -18,6 +18,6 @@ class Messages extends Model
     }
 
     public function getTimeAttribute(): string {
-        return date('d M Y, H:i:s', strtotime($this->attributes('created_at')));
+        return date("d M Y, H:i:s", strtotime($this->attributes['created_at']));
     }
 }
